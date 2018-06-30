@@ -23,8 +23,14 @@ function makeGrid(e) {
     // Your code goes here!
     document.querySelectorAll('td').forEach(td => {
         td.addEventListener('click', function(){
-            let picker = document.querySelector('#colorPicker');
-            this.style.background = picker.value;
+            if(this.classList.contains('colored')){
+                this.style.background = '#fff'
+                this.classList.remove('colored')
+            }else{
+                let picker = document.querySelector('#colorPicker');
+                this.classList.add('colored');
+                this.style.background = picker.value;
+            }
         })
     })
 }
