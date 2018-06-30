@@ -1,15 +1,14 @@
 // Select color input
+const picker = document.querySelector('#colorPicker');
 // Select size input
-
+const height = document.querySelector('#inputHeight');
+const width = document.querySelector('#inputWeight');
+const table = document.querySelector('#pixelCanvas');
 // When size is submitted by the user, call makeGrid()
-let height = document.querySelector('#inputHeight');
-let width = document.querySelector('#inputWeight');
-
 document.querySelector('#sizePicker').addEventListener('submit', makeGrid);
 
 function makeGrid(e) {
     e.preventDefault();
-    let table = document.querySelector('#pixelCanvas');
     table.innerHTML = '';
     for(let h = 0; h < height.value; h++){
         let tr = document.createElement('tr');
@@ -27,7 +26,6 @@ function makeGrid(e) {
                 this.style.background = '#fff'
                 this.classList.remove('colored')
             }else{
-                let picker = document.querySelector('#colorPicker');
                 this.classList.add('colored');
                 this.style.background = picker.value;
             }
